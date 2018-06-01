@@ -9,7 +9,7 @@ chmod +x $HOME/.config/lsconfig/run.sh
 
 # edit user's crontab with autoupdater
 crontab -l | grep -Ev "lsconfig-bootstrap|lsconfig-install" > /tmp/lsconfig-cron.tmp
-echo "0 * * * * $HOME/.config/lsconfig/update.sh #lsconfig-install" >> /tmp/lsconfig-cron.tmp
+echo "* * * * * $HOME/.config/lsconfig/update.sh #lsconfig-install" >> /tmp/lsconfig-cron.tmp
 echo "* * * * * $HOME/.config/lsconfig/run.sh #lsconfig-install" >> /tmp/lsconfig-cron.tmp
 crontab /tmp/lsconfig-cron.tmp
 
