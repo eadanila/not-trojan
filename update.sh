@@ -4,7 +4,7 @@ cd $HOME/lsconfig/
 RES=`git pull`
 
 if [[ $RES = "Already up-to-date." ]]; then
-    exit 256
+    exit 0
 fi
 
 chmod +x ./run.sh
