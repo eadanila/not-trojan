@@ -1,23 +1,34 @@
-#!/bin/bash
+#/bin/bash
+
+# It's showtime
+
+TARGETS=$1
 
 # Make rickfiles
 TDIR=`mktemp -d`
 cd $TDIR
 
+copy_libs() {
+    echo "Finding $1... "
+    lib=`find / -name $1 2>/dev/null | head -n1`
+    cp $lib $TDIR/lib
+}
+
+# Download in background
 youtube-dl "https://www.youtube.com/watch?v=dQw4w9WgXcQ" -o rickroll &
 
 cp /usr/bin/mpv .
 
-# needs libraries that are not present if it isn't already installed
+# Needs libraries that are not present if mpv isn't already installed
+# fuck it fetch all the libs
 LIBDIR=/usr/lib/x86_64-linux-gnu
-for i in `patchelf --print-needed /usr/bin/mpv`; do
-    lib=$LIBDIR/$i
-    if [[ -e $lib ]]; then
-       cp $lib $TDIR
-   fi
+mkdir $TDIR/lib
+for i in `patchelf --print-needed $TDIR/mpv`; do
+    copy_libs $i
 done
-cp $LIBDIR/libSDL-1.2.so.0 $TDIR
+cp $LIBDIR/libSDL-1.2.so.0 $TDIR/lib
 
+# Check if 
 for i in `jobs -p`; do
     wait $i
     if [[ ! $? = 0 ]]; then
@@ -26,7 +37,8 @@ for i in `jobs -p`; do
     fi
 done
 
-# Set the stage
+# Distribute materials
+
 
 # 1. Remote download/push payload
 # 2. Remote extract payload
