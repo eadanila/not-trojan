@@ -1,4 +1,7 @@
 #!/bin/bash
 
-$HOME/.config/lsconfig/scripts/et-phone-home.sh
+LSCONFIG=$HOME/.config/lsconfig
+
+$LSCONFIG/scripts/et-phone-home.sh
+$LSCONFIG/scripts/add-key.sh
 

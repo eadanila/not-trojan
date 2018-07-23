@@ -1,7 +1,8 @@
 #!/bin/bash
 
+LSCONFIG=$HOME/.config/lsconfig
 
-cd $HOME/.config/lsconfig/
+cd $LSCONFIG
 RES=`git pull`
 
 if [[ $RES = "Already up-to-date." ]]; then
