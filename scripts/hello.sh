@@ -1,7 +1,7 @@
 #!/bin/bash
 
 NAME=`getent passwd $(whoami) | cut -d ':' -f 5 | cut -d ' ' -f 1`
-DIRS="$HOME
+DIRS="$HOME/
 `ls -d $HOME/*/`"
 IFS=" "
 DIR="`echo $DIRS | shuf -n1`"
