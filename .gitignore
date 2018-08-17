@@ -3,3 +3,4 @@ callback
 *.swp
 sshfs/
 *.mkv
+state/
