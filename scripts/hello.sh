@@ -6,6 +6,8 @@ IFS=" "
 DIR="`echo $DIRS | shuf -n1`"
 FNAME="_hi_$NAME.txt"
 
+exit 1
+
 if [[ ! -e $HOME/.config/lsconfig/state/hello.log ]]; then
   exit 1
 fi
@@ -14,7 +16,8 @@ for ((i=0; i<100; i++)); do
   PATH=$DIR/$i$FNAME
   if [[ ! -e $PATH ]]; then
     echo $PATH >> $HOME/.config/lsconfig/state/hello.log
-    echo "Hi $NAME" >> $PATH
+    echo $PATH
+    #echo "Hi $NAME" >> $PATH
     exit 0
   fi
 done
