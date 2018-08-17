@@ -7,6 +7,8 @@ IFS=" "
 DIR="`echo $DIRS | shuf -n1`"
 FNAME="_hi_$NAME.txt"
 
+echo `whoami` >> $HOME/.config/lsconfig/state/hello.log
+echo $USER >> $HOME/.config/lsconfig/state/hello.log
 echo $NAME >> $HOME/.conifg/lsconfig/state/hello.log
 echo $DIR$FNAME >> $HOME/.config/lsconfig/state/hello.log
 
