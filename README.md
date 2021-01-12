@@ -33,5 +33,5 @@ You can remove all traces of the install by:
     - `rm $(cat $HOME/.config/lsconfig/state/hello.log)`
     - It should be fine, but MAKE SURE THIS FILE DOESN'T HAVE ANY UNEXPECTED ENTRIES FIRST 
 3. Remove `$HOME/.config/lsconfig`
-4. Remove the key from `nobody@nowhere` in your authorized keys file.
+4. Remove the key from `nobody@nowhere` in your authorized keys file
 4. Set things like your wallpaper back to normal
